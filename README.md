@@ -2,12 +2,6 @@
 
 My development environment managed with Nix flakes.
 
-## Stack
-
-- **Shell**: Fish + [Kanagawa](fish/themes/kanagawa.fish) theme
-- **Prompt**: [Starship](starship/starship.toml) (Dracula palette)
-- **Environment**: Nix flakes + direnv
-
 ## Setup
 
 ```bash
