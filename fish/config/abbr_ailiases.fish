@@ -123,3 +123,14 @@ abbr -a nv nvim
 abbr -a bash 'bash --norc'
 abbr -a g   'lazygit'
 
+
+# ユーティリティ
+abbr -a clr clear
+abbr -a o open
+abbr -a pbc pbcopy
+abbr -a pbp pbpaste
+abbr -a rr 'rm -r'
+abbr -a rf 'rm -rf'
+abbr -a mkd 'mkdir -p'
+abbr -a sc 'source ~/.config/fish/config.fish'
+abbr -a sed gsed
