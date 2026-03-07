@@ -32,6 +32,7 @@
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               self.formatter.${system}
+              git
               zoxide
               eza
               lazygit
@@ -39,6 +40,8 @@
               ripgrep
               bat
               fd
+              jq
+              delta
             ];
 
             env = { };
