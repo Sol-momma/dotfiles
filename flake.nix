@@ -1,7 +1,7 @@
 {
   description = "Personal dotfiles and CLI development shell";
 
-  inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
   outputs =
     { self, ... }@inputs:
@@ -32,14 +32,6 @@
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               self.formatter.${system}
-              git
-              zoxide
-              eza
-              lazygit
-              fzf
-              ripgrep
-              bat
-              fd
               jq
               delta
             ];
