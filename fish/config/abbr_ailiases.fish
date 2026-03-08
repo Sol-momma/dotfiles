@@ -121,7 +121,7 @@ alias vim nvim
 abbr -a v nvim
 abbr -a nv nvim
 abbr -a bash 'bash --norc'
-abbr -a g   'lazygit'
+# abbr -a g   'lazygit'
 
 
 # ユーティリティ
