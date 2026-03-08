@@ -1,0 +1,51 @@
+[user]
+	email = sol0608sol@gmail.com
+	name = So Momma
+[pull]
+	rebase = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	cm = commit -m
+	pl = pull
+	ps = push
+	lg = log --oneline --graph --all
+	unstage = reset HEAD --
+	cb = checkout -b
+	po = push origin
+	# stashの一覧を詳細に（いつ、どのブランチで、どんな修正か）表示
+    sl = stash list --pretty=format:'%C(yellow)%gd%C(reset) %C(blue)%cr%C(reset) %C(cyan)%s%C(reset) %C(white)%b%C(reset)'
+    # 直近のstashの中身をdiffで見る
+    sd = stash show -p
+	# 未追跡ファイル(新しく作ったファイル)も含めてstash
+    su = stash -u
+    # stashの一覧を「いつ、どのブランチか」含めて綺麗に表示
+    sl = stash list --pretty=format:'%C(yellow)%gd%C(reset) %C(blue)%cr%C(reset) %C(cyan)%s%C(reset) %C(white)%b%C(reset)'
+    # ステージング（git add）したファイル「だけ」をstashする
+    # ※作業中の他の変更はそのまま残したい時に便利
+    ss = stash push --staged
+    # 一部変更だけを選んでstash（インタラクティブモード）
+    # ※「この修正だけ一旦どけたい」という時に一箇所ずつ選べる
+    sp = stash -p
+	# コミットを自分で書かない
+	aicommit = "!f() { COMMITMSG=$(claude --no-session-persistence --print 'Generate ONLY a one-line Git commit message in English using imperative mood. The message should summarize what was changed and why, based strictly on the contents of `git diff --cached`. DO NOT add an explanation or a body. Output ONLY the commit summary line.'); git commit -m \"$COMMITMSG\" -e; }; f"
+ 	# 直前のコミットに、今の変更を「こっそり」混ぜる
+    # ※コミット後にタイポを見つけた時、履歴を汚さず修正できます
+    amend = commit --amend --no-edit
+    
+    # 直前のコミットを取り消して、中身をステージング状態に戻す
+    # ※「コミットしちゃったけどまだ修正があった」時に
+    uncommit = reset --soft HEAD^
+    
+    # 全ての変更を捨てて、最後のコミット時点まで完全に強制的に戻す
+    # ※めちゃくちゃになって「やり直したい！」という時に（注意：戻せません）
+    discard = reset --hard HEAD
+	# グラフ形式で、ブランチの分岐や合流をカラー表示
+    lg = log --graph --pretty=format:'%C(yellow)%h%C(reset) -%C(auto)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --all

@@ -56,7 +56,7 @@ abbr -a -c git pushf push --force-with-lease --force-if-includes # Safe force pu
 abbr -a -c git rbm rebase origin/main # Rebase on origin/main
 abbr -a -c git rst reset # Reset HEAD
 abbr -a -c git rs restore # Restore working tree files
-abbr -a -c git st stash # Stash changes
+# abbr -a -c git st stash # Stash changes
 abbr -a -c git sts status -s -uno # Short status without untracked files
 abbr -a -c git sm submodule # Manage submodules
 abbr -a -c git smu submodule update --remote --init --recursive # Update submodules recursively
