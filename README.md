@@ -24,3 +24,9 @@ nix flake show   # Inspect flake outputs
 ```
 
 The dev shell provides: `nixfmt`, `jq`, `delta`.
+
+設定ファイルを即反映。
+
+```bash
+sc =  source ~/.config/fish/config.fish
+```
