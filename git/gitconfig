@@ -35,7 +35,7 @@
     # ※「この修正だけ一旦どけたい」という時に一箇所ずつ選べる
     sp = stash -p
 	# コミットを自分で書かない
-	aicommit = "!f() { COMMITMSG=$(env -u CLAUDECODE claude --no-session-persistence --print 'Generate ONLY a one-line Git commit message in English using imperative mood. The message should summarize what was changed and why, based strictly on the contents of `git diff --cached`. DO NOT add an explanation or a body. Output ONLY the commit summary line.'); git commit -m \"$COMMITMSG\" -e; }; f"
+	aicommit = "!f() { env -u CLAUDECODE claude --no-session-persistence --print 'git diff --cachedの内容をもとに、日本語で1行のコミットメッセージを考えてください。説明や本文は不要です。コミットメッセージの1行だけを出力してください。'; }; f"
  	# 直前のコミットに、今の変更を「こっそり」混ぜる
     # ※コミット後にタイポを見つけた時、履歴を汚さず修正できます
     amend = commit --amend --no-edit
