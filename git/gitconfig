@@ -34,9 +34,14 @@
     # 一部変更だけを選んでstash（インタラクティブモード）
     # ※「この修正だけ一旦どけたい」という時に一箇所ずつ選べる
     sp = stash -p
+	
+	# ブランチを自分で書かない
+	aibranch = "!f() { env -u CLAUDECODE claude --no-session-persistence --print 'git diff --cachedの内容ををもとに、prefix付きのgit branch名を生成してください。prefix: feature, fix, refactor, chore, docs, test。形式: prefix/kebab-case。ブランチ名のみ出力。'; }; f"
+	
 	# コミットを自分で書かない
 	aicommit = "!f() { env -u CLAUDECODE claude --no-session-persistence --print 'git diff --cachedの内容をもとに、日本語で1行のコミットメッセージを考えてください。説明や本文は不要です。コミットメッセージの1行だけを出力してください。'; }; f"
- 	# 直前のコミットに、今の変更を「こっそり」混ぜる
+ 	
+	# 直前のコミットに、今の変更を「こっそり」混ぜる
     # ※コミット後にタイポを見つけた時、履歴を汚さず修正できます
     amend = commit --amend --no-edit
     
